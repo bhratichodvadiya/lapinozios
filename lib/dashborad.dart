@@ -1,64 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lapinozios/components/bar%20chart%20.dart';
+import 'package:lapinozios/components/drawer.dart';
 
-import 'package:inner_drawer/inner_drawer.dart';
 
-class dashboard_ios extends StatefulWidget {
-  const dashboard_ios({super.key});
+class dashboard extends StatefulWidget {
+  const dashboard({super.key});
 
   @override
-  State<dashboard_ios> createState() => _dashboard_iosState();
+  State<dashboard> createState() => _dashboardState();
 }
 
-class _dashboard_iosState extends State<dashboard_ios> {
+class _dashboardState extends State<dashboard> {
   @override
   Widget build(BuildContext context) {
-    Color color7 = Color(0xFF6BB5FA); // Blue color
-    Color color8 = Color(0xFFFFFFFF); // White color
+     Color color7 = Color(0xFF6BB5FA); 
+    Color color8 = Color(0xFFFFFFFF); 
     Color color6 = Color(0xFFF3742D);
     Color color9 = Color(0xFFD0DFEE);
     Color color5 = Color(0xFF81D1FF);
-    Color color = Color(0xFF3C81C2);
+    Color color =  Color(0xFF3C81C2);
     Color color1 = Color(0xFFDAA520);
     Color color2 = Color(0xFFFCE5AC);
     Color color3 = Color(0xFF32801C);
     Color? mixedColor = Color.lerp(color7, color8, 0.5);
     double wid = MediaQuery.of(context).size.width;
-    double hei = MediaQuery.of(context).size.height;
-      final GlobalKey<InnerDrawerState> _innerDrawerKey = GlobalKey<InnerDrawerState>();
-    return InnerDrawer(
-       onTapClose: true, 
-      swipe: true, 
-    rightChild: builddrawer(400, 300),
-      scaffold:buildscaffold(),
-      
-       );
-  }
-}
-
-class buildscaffold extends StatelessWidget {
-  const buildscaffold({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-      final GlobalKey<InnerDrawerState> _innerDrawerKey = GlobalKey<InnerDrawerState>();
-      Color color7 = Color(0xFF6BB5FA); // Blue color
-    Color color8 = Color(0xFFFFFFFF); // White color
-    Color color6 = Color(0xFFF3742D);
-    Color color9 = Color(0xFFD0DFEE);
-    Color color5 = Color(0xFF81D1FF);
-    Color color = Color(0xFF3C81C2);
-    Color color1 = Color(0xFFDAA520);
-    Color color2 = Color(0xFFFCE5AC);
-    Color color3 = Color(0xFF32801C);
-    Color? mixedColor = Color.lerp(color7, color8, 0.5);
-    double wid = MediaQuery.of(context).size.width;
-    double hei = MediaQuery.of(context).size.height;
+    double hei = MediaQuery.of(context).size.height;  
     return CupertinoPageScaffold(
+    resizeToAvoidBottomInset: true,
         child: Column(
           children: [
  Expanded(
@@ -67,8 +38,8 @@ class buildscaffold extends StatelessWidget {
      mainAxisAlignment: MainAxisAlignment.spaceBetween,
      children: [
        CupertinoButton(
-         onPressed: () {
-           _innerDrawerKey.currentState?.toggle(); // Toggle the drawer
+         onPressed:(){
+
          },
          child: const Icon(
            CupertinoIcons.bars,
@@ -76,11 +47,12 @@ class buildscaffold extends StatelessWidget {
            color: CupertinoColors.black,
          ),
        ),
-       Image.asset(
-         'assets/images/Rectangle 5021 (1).png',
-         width: 80,
-         height: 80,
-       ),
+      
+      //  Image.asset(
+      //    'assets/images/Rectangle 5021 (1).png',
+      //    width: 80,
+      //    height: 80,
+      //  ),
      ],
    ),
  ),      Expanded(
@@ -109,7 +81,7 @@ class buildscaffold extends StatelessWidget {
                       height: wid / 2.46,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
+                          color: CupertinoColors.white,
                           boxShadow: const [
                             BoxShadow(
                                 blurStyle: BlurStyle.normal,
@@ -179,7 +151,7 @@ class buildscaffold extends StatelessWidget {
                       height: wid / 2.46,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
+                          color:CupertinoColors.white,
                           boxShadow: const [
                             BoxShadow(
                                 blurStyle: BlurStyle.normal,
@@ -249,7 +221,7 @@ class buildscaffold extends StatelessWidget {
                       height: wid / 2.46,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
+                          color: CupertinoColors.white,
                           boxShadow: const [
                             BoxShadow(
                                 blurStyle: BlurStyle.normal,
@@ -319,7 +291,7 @@ class buildscaffold extends StatelessWidget {
                       height: wid / 2.46,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
+                          color: CupertinoColors.white,
                           boxShadow: const [
                             BoxShadow(
                                 blurStyle: BlurStyle.normal,
@@ -398,7 +370,7 @@ class buildscaffold extends StatelessWidget {
                                 spreadRadius: 0)
                           ],
                           borderRadius: BorderRadius.circular(10),
-                          color: Colors.white),
+                          color: CupertinoColors.white),
                       child: Column(
                         children: [
                           Gap(10),
@@ -469,384 +441,4 @@ class buildscaffold extends StatelessWidget {
           )),
     ]));
   }
-}
-
-
-
-
-Widget builddrawer(double hit, double wid) {
-  return  Drawer(
-    child: Column(
-      children: [
-        const Gap(40),
-        Row(
-          children: [
-            Image.asset("assets/images/image 56.png"),
-            const Gap(10),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "LA Pino'z Pizza",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
-                ),
-                Gap(4),
-                Row(
-                  children: [
-          
-                    Icon(
-                      Icons.location_on,
-                      color: Colors.grey,
-                      size: 14,
-                    ),
-                    Text(
-                      "Varachha",
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
-                Gap(4),
-                Row(
-                  children: [
-                    Text(
-                      "4.9",
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    Gap(5),
-                    Icon(
-                      Icons.star,
-                      color: Colors.black,
-                      size: 16,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: Colors.black,
-                      size: 16,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: Colors.black,
-                      size: 16,
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: Colors.black,
-                      size: 16,
-                    ),
-                    Icon(
-                      Icons.star_half,
-                      color: Colors.black,
-                      size: 16,
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ],
-        ),
-        const Gap(30),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'MANAGE PROFILE',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'MANAGE OFFERS',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'TOTAL ORDERS',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'TOTAL EARNINGS',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'TOTAL REDEEMED',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'ACTIVE OFFERS',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'QR CODE',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        Row(
-          children: [
-            Text(
-              'SETTINGS',
-              style: GoogleFonts.openSans(
-                fontSize: 16,
-                color: Colors.black,
-              ),
-            ),
-          ],
-        ),
-        const Divider(
-          indent: 0,
-          endIndent: 0,
-          color: Colors.black,
-          thickness: 0.2,
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'ABOUT US',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'TERMS & CONDITION',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(20),
-        GestureDetector(
-          onTap: () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'PRIVACY POLICY',
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20,
-              ),
-            ],
-          ),
-        ),
-        const Gap(30),
-        GestureDetector(
-          onTap: () {},
-          child: Center(
-            child: Container(
-              height: 36,
-              width: 156,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.logout,
-                    size: 20,
-                    color: Colors.amber,
-                  ),
-                  const Gap(10),
-                  Text(
-                    'Logout',
-                    style: GoogleFonts.openSans(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.amber,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lapinozios/dashboard.dart';
+import 'package:lapinozios/components/drawer.dart';
+import 'package:lapinozios/dashborad.dart';
 import 'package:lapinozios/earning/Earning.dart';
 import 'package:lapinozios/order/total%20order.dart';
 import 'package:lapinozios/overview/overview.dart';
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget {
   //    home:order(),
 //home: overview_ios(),
 //home: Earning_ios(),
-home: MyApp(),
-//home: drawer(500, 200),
+//home:dashboard(),
+
+home: MyHomePage()
     );
   }
 }
